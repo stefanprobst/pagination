@@ -1,0 +1,32 @@
+{
+  "name": "@stefanprobst/pagination",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:cjs": "tsc -p tsconfig.build.json --module commonjs --outDir dist/cjs && sh scripts/fix-package-type.sh",
+    "prepublishOnly": "npm run build && npm run build:cjs",
+    "test": "uvu -r tsm test"
+  },
+  "dependencies": {
+    "@stefanprobst/range": "^1.1.1"
+  },
+  "devDependencies": {
+    "@stefanprobst/prettier-config": "^2.0.2",
+    "prettier": "^2.7.1",
+    "tsm": "^2.2.2",
+    "typescript": "^4.7.4",
+    "uvu": "^0.5.6"
+  },
+  "prettier": "@stefanprobst/prettier-config"
+}
